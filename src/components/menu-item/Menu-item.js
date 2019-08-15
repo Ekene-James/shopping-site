@@ -1,8 +1,12 @@
 import React from "react";
 import "./menu-item.scss";
-function Menuitem({ title, imageUrl, size }) {
+import { withRouter } from "react-router-dom";
+function Menuitem({ title, imageUrl, size, history, linkUrl }) {
   return (
-    <div className={`${size} menu-item`}>
+    <div
+      className={`${size} menu-item`}
+      onClick={() => history.push(`/${linkUrl}`)}
+    >
       <div
         className="background-image"
         style={{
@@ -10,11 +14,11 @@ function Menuitem({ title, imageUrl, size }) {
         }}
       />
       <div className="content">
-        <h1 className="title"> {title}</h1>
+        <h1 className="title"> {title.toUpperCase()}</h1>
         <span className="subtitle">Shop now</span>
       </div>
     </div>
   );
 }
 
-export default Menuitem;
+export default withRouter(Menuitem);

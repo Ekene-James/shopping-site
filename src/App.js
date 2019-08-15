@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import DirectoryMenu from "./components/directory-menu/DirectoryMenu";
+import Hats from "./pages/Hats";
 
 export class App extends Component {
   render() {
     return (
       <div className="App">
-        <DirectoryMenu />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/shop/hats" component={Hats} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
