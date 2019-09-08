@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+import { signIn, signInwithEmail } from "../../redux/actions/authActions";
 import "./SignIn.scss";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
-import { signInwithEmail, signIn } from "../resources/Firebase";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -22,15 +25,18 @@ export class SignIn extends Component {
     e.preventDefault();
     const { email, password } = this.state;
 
-    signIn(email, password);
+    this.props.signIn(email, password, this.props.history);
     this.setState({
       email: "",
       password: ""
     });
   };
-
+  signInwithEmail = () => {
+    return this.props.signInwithEmail(this.props.history);
+  };
   render() {
     const { email, password } = this.state;
+
     return (
       <div className="sign-in">
         <h1 className="title">I already have an account</h1>
@@ -54,7 +60,7 @@ export class SignIn extends Component {
           />
           <div className="button">
             <CustomButton type="submit">Sign-in</CustomButton>
-            <CustomButton onClick={signInwithEmail} isGoogleSignIn>
+            <CustomButton onClick={this.signInwithEmail} isGoogleSignIn>
               Email-sign-in
             </CustomButton>
           </div>
@@ -64,4 +70,7 @@ export class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default connect(
+  null,
+  { signIn, signInwithEmail }
+)(withRouter(SignIn));

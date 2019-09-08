@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./signUp.scss";
-import { signUp } from "../resources/Firebase";
+import { signUp } from "../../redux/actions/authActions";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
 
@@ -21,7 +23,7 @@ export class SignUp extends Component {
       alert("passwords dont match");
       return;
     }
-    signUp(email, password, displayName);
+    this.props.signUp(email, password, displayName, this.props.history);
     this.setState({
       email: "",
       displayName: "",
@@ -83,4 +85,7 @@ export class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default connect(
+  null,
+  { signUp }
+)(withRouter(SignUp));

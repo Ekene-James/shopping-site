@@ -9,8 +9,8 @@ function CategoryItems({ items, title, routeName }) {
       <div className="preview">
         {items
           .filter((item, idx) => idx < 4)
-          .map(({ id, ...otherProps }) => (
-            <SingleCategoryItem key={id} {...otherProps} />
+          .map(item => (
+            <SingleCategoryItem key={item.id} item={item} />
           ))}
       </div>
     </div>
