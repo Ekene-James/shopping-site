@@ -2,7 +2,10 @@ import React from "react";
 import "./category-items.scss";
 import SingleCategoryItem from "./SingleCategoryItem";
 
-function CategoryItems({ items, title, routeName }) {
+function CategoryItems({ data }) {
+  const { title, items } = data;
+  console.log(data);
+
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>

@@ -10,6 +10,7 @@ import SignInAndSignUpContainer from "./pages/sign-in-and-sign-up-container/Sign
 
 import { getCurrentUser } from "./redux/actions/authActions";
 import CheckOut from "./pages/check-out/CheckOut";
+import EachCategory from "./components/eachCategory/EachCategory";
 
 export class App extends Component {
   componentDidMount() {
@@ -23,7 +24,8 @@ export class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={Homepage} />
-            <Route path="/shop" component={VariousCategories} />
+            <Route exact path="/shop" component={VariousCategories} />
+            <Route path="/shop/:category" component={EachCategory} />
             <Route
               exact
               path="/signIn"

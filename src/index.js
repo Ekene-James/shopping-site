@@ -6,7 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import { persistStore } from "redux-persist";
 import rootReducer from "./redux/reducers/rootReducer";
+import { PersistGate } from "redux-persist/integration/react";
 
 const middleware = [thunk];
 
@@ -18,9 +20,13 @@ const store = createStore(
   )
 );
 
+const storePersistor = persistStore(store);
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <PersistGate persistor={storePersistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );
