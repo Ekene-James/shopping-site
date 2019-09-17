@@ -6,6 +6,7 @@ import {
 import { connect } from "react-redux";
 import "./check-out.scss";
 import CheckOutComponent from "../../components/check-out/CheckOut.component";
+import StripeButton from "../../components/stripe-button/StripeButton";
 
 export class CheckOut extends Component {
   render() {
@@ -38,6 +39,7 @@ export class CheckOut extends Component {
         <div className="total">
           <span>Total : $ {total}</span>
         </div>
+        <StripeButton price={total} />
       </div>
     );
   }

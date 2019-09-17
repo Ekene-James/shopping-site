@@ -4,7 +4,6 @@ import SingleCategoryItem from "./SingleCategoryItem";
 
 function CategoryItems({ data }) {
   const { title, items } = data;
-  console.log(data);
 
   return (
     <div className="collection-preview">
