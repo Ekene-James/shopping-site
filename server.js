@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.post("/payment", (req, res) => {
+  
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
