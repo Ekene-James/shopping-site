@@ -28,6 +28,7 @@ app.post("/payment", (req, res) => {
   };
  
   stripe.charges.create(body, (stripeErr, stripeSucces) => {
+    
     if (stripeErr) {
       res.status(500).send({ stripeError: stripeErr });
     } else {
