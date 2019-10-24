@@ -4,7 +4,7 @@ import DirectoryMenu from "../components/directory-menu/DirectoryMenu";
 
 function Homepage() {
   return (
-    <div className="homepage">
+    <div className="container homepage">
       <DirectoryMenu />
     </div>
   );

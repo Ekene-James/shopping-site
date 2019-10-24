@@ -8,15 +8,22 @@ function CategoryItems({ data }) {
 
   return (
     <div className="collection-preview">
-      <Link className="title" to={`/shop/${title.toLowerCase()}`}>
+      <Link
+        className="title"
+        to={`/shop/${title.toLowerCase()}`}
+        style={{ textDecoration: "none" }}
+      >
         {title.toUpperCase()}
       </Link>
-      <div className="preview">
-        {items
-          .filter((item, idx) => idx < 4)
-          .map(item => (
-            <SingleCategoryItem key={item.id} item={item} />
-          ))}
+
+      <div className="container-fluid">
+        <div className="row">
+          {items
+            .filter((item, idx) => idx < 4)
+            .map(item => (
+              <SingleCategoryItem key={item.id} item={item} />
+            ))}
+        </div>
       </div>
     </div>
   );

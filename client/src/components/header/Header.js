@@ -32,8 +32,8 @@ export class Header extends Component {
             <div>
               <div className="option" onClick={this.signOut}>
                 SIGN-OUT
-              </div>
-              <p className="option">welcome {currentUser.displayName}</p>
+              </div>{" "}
+              <span className="option">welcome {currentUser.displayName}</span>
             </div>
           ) : (
             <Link className="option" to="/signIn">

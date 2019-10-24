@@ -6,7 +6,7 @@ import CustomButton from "../custom-button/CustomButton";
 function SingleCategoryItem({ item, addItemToCart }) {
   const { name, imageUrl, price } = item;
   return (
-    <div className="collection-item">
+    <div className="col-md-3 collection-item">
       <div
         className="image"
         style={{

@@ -1,35 +1,33 @@
 import React from "react";
-import "./check-out-component.scss";
+
 import {
   removeItemFromCart,
   addItemToCart,
   reduceItemFromCartActions
 } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
+import "./check-out-component.scss";
 
 function CheckOutComponent({ item, clearItem, addItem, reduceItem }) {
   const { name, imageUrl, quantity, price } = item;
   return (
-    <div className="checkout-item">
-      <div className="image-container">
+    <tr className="tr">
+      <td>
         <img src={imageUrl} alt="imageurl" />
-      </div>
-      <div className="name">{name}</div>
-      <div className="quantity">
-        <span className="arrow" onClick={() => reduceItem(item)}>
-          &#10094;
-        </span>
-        <span className="value">{quantity}</span>
-
-        <span className="arrow" onClick={() => addItem(item)}>
-          &#10095;
-        </span>
-      </div>
-      <div className="price">{price}</div>
-      <div className="remove-button" onClick={() => clearItem(item)}>
+      </td>
+      <td>{name}</td>
+      <td className="clickable" onClick={() => reduceItem(item)}>
+        &#10094;
+      </td>
+      <td>{quantity}</td>
+      <td className="clickable" onClick={() => addItem(item)}>
+        &#10095;
+      </td>
+      <td>{price}</td>
+      <td className="clickable" onClick={() => clearItem(item)}>
         &#10008;
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 }
 const mapDispatchToProps = dispatch => ({

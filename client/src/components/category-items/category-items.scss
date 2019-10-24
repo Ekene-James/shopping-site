@@ -1,15 +1,28 @@
 .collection-preview {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 30px;
+  margin: 0px;
 
   .title {
     font-size: 28px;
     margin-bottom: 25px;
   }
 
-  .preview {
+  /* .preview {
     display: flex;
     justify-content: space-between;
+  }*/
+}
+@media (max-width: 690px) {
+  .row {
+    display: block;
+  }
+  .col-md-3 {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .row {
+    display: inline-flex !important;
   }
 }

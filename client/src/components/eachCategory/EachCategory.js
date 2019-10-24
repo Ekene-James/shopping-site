@@ -13,9 +13,9 @@ const EachCategory = ({ categoryItems }) => {
   const { title, items } = categoryItems;
 
   return (
-    <div className="collection-page">
+    <div className="container-fluid collection-page">
       <h1 className="title">{title}</h1>
-      <div className="items">
+      <div className="row items">
         {items.map(item => (
           <SingleCategoryItem key={item.id} item={item} />
         ))}

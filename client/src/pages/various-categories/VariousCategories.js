@@ -26,10 +26,11 @@ class VariousCategories extends Component {
       return <Spinner />;
     }
     return (
-      <div className="shop-page">
+      <div className="container-fluid  shop-page">
         {data.map(data => (
           <CategoryItems key={data.id} data={data} />
         ))}
+       
       </div>
     );
   }

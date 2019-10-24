@@ -8,7 +8,7 @@ export class DirectoryMenu extends Component {
   render() {
     const { menuData } = this.props;
     return (
-      <div className="directory-menu">
+      <div className="row directory-menu">
         {menuData.map(({ id, ...otherProps }) => {
           return <Menuitem key={id} {...otherProps} />;
         })}
