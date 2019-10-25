@@ -16,6 +16,7 @@ export class Header extends Component {
   };
   render() {
     const { currentUser, cart } = this.props;
+
     return (
       <div className="header">
         <Link to="/" className="logo-container">

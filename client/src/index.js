@@ -11,12 +11,20 @@ import rootReducer from "./redux/reducers/rootReducer";
 import { PersistGate } from "redux-persist/integration/react";
 
 const middleware = [thunk];
+let devTool;
+if (process.env.NODE_ENV === "development") {
+  devTool =
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__();
+} else {
+  devTool = "";
+}
 
 const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    devTool
   )
 );
 
