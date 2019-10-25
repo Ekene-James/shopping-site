@@ -9,23 +9,13 @@ import thunk from "redux-thunk";
 import { persistStore } from "redux-persist";
 import rootReducer from "./redux/reducers/rootReducer";
 import { PersistGate } from "redux-persist/integration/react";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const middleware = [thunk];
-let devTool;
-if (process.env.NODE_ENV === "development") {
-  devTool =
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__();
-} else {
-  devTool = "";
-}
-
+// window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(...middleware),
-    devTool
-  )
+  compose(composeWithDevTools(applyMiddleware(...middleware)))
 );
 
 const storePersistor = persistStore(store);
