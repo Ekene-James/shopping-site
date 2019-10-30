@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./various-categories.scss";
 
-import {
-  selectShopdata,
-  selectIsLoading
-} from "../../redux/utils/dataReselectFunc";
+import { selectShopdata } from "../../redux/utils/dataReselectFunc";
 import CategoryItems from "../../components/category-items/CategoryItems";
 import { getShopdata } from "../../redux/actions/itemsAction";
 import Spinner from "../spinner/Spinner";
@@ -30,7 +27,6 @@ class VariousCategories extends Component {
         {data.map(data => (
           <CategoryItems key={data.id} data={data} />
         ))}
-       
       </div>
     );
   }

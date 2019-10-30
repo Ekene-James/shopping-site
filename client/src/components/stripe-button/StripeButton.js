@@ -36,8 +36,6 @@ const StripeButton = ({ price, clearCart }) => {
       amount={priceCents}
       stripeKey={publishableKey}
       locale="en"
-      billingAddress
-      shippingAddress
       // Note: Enabling either address option will give the user the ability to
       // fill out both. Addresses are sent as a second parameter in the token callback.
 

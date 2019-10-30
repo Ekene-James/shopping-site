@@ -29,7 +29,6 @@ export const getCurrentUser = () => dispatch => {
           if (!doc.exists) {
             console.log("No such document!");
           } else {
-            const id = doc.id;
             const userData = doc.data();
 
             console.log("gotten current user");
