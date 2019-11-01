@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(compression());
-app.use(enforce.HTTPS({ trusProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
